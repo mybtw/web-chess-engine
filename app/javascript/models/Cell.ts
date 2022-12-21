@@ -23,6 +23,12 @@ export class Cell{
     isEmpty():boolean{
         return this.figure === null;
     }
+    isEnemy(target:Cell):boolean{
+        if(target.figure) {
+            return target.figure.color !== this.figure?.color;
+        }
+        return false;
+    }
 
     isEmptyVertical(target:Cell):boolean{
         if(this.x !== target.x){

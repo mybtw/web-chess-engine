@@ -29,6 +29,8 @@ export class Figure{
         this.id = Math.random();
     }
 
+
+
     canMove(target: Cell): boolean{
         if(target.figure?.color === this.color){
             return false;
