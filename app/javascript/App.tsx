@@ -5,6 +5,7 @@ import {Board} from "./models/Board";
 import {Player} from "./models/Player";
 import {Colors} from "./models/Colors";
 import LostFiguresComponent from "./components/LostFiguresComponent";
+import Timer from "./components/Timer";
 
 
 const App = () => {
@@ -29,6 +30,10 @@ const App = () => {
     }
     return (
         <div className="app">
+            <Timer
+                currentPlayer={currentPlayer}
+                restart={restart}
+            />
             <BoardComponent
             board={board}
             setBoard={setBoard}
