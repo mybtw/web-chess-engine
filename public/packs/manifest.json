@@ -1,0 +1,36 @@
+{
+  "entrypoints": {
+    "hello_react": {
+      "js": [
+        "/packs/js/hello_react-75cb0987c53202f3298a.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_react-75cb0987c53202f3298a.js.map"
+      ]
+    },
+    "hello_typescript": {
+      "js": [
+        "/packs/js/hello_typescript-736830131a936b0890a3.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_typescript-736830131a936b0890a3.js.map"
+      ]
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react-75cb0987c53202f3298a.js",
+  "hello_react.js.map": "/packs/js/hello_react-75cb0987c53202f3298a.js.map",
+  "hello_typescript.js": "/packs/js/hello_typescript-736830131a936b0890a3.js",
+  "hello_typescript.js.map": "/packs/js/hello_typescript-736830131a936b0890a3.js.map",
+  "media/assets/black-bishop.png": "/packs/media/assets/black-bishop-0180c5827bceece87dc3abdae65482ef.png",
+  "media/assets/black-king.png": "/packs/media/assets/black-king-e48feabdd563479eefc8591390c18d1c.png",
+  "media/assets/black-knight.png": "/packs/media/assets/black-knight-69534b953181e0c4d0335d4bee6364e7.png",
+  "media/assets/black-pawn.png": "/packs/media/assets/black-pawn-de55e4cb5f4b5acf62ee872a3a5b0cca.png",
+  "media/assets/black-queen.png": "/packs/media/assets/black-queen-9cab050258aa5fc071d990ece6e66816.png",
+  "media/assets/black-rook.png": "/packs/media/assets/black-rook-55c06d7782205f329641b3114d5db7e6.png",
+  "media/assets/white-bishop.png": "/packs/media/assets/white-bishop-11f4961ce6da7780b8b871f4b2088514.png",
+  "media/assets/white-king.png": "/packs/media/assets/white-king-ae8822a6c7a3fe3d4bc456aac92e680b.png",
+  "media/assets/white-knight.png": "/packs/media/assets/white-knight-48a5392547eb9403d668d19c1dee23ea.png",
+  "media/assets/white-pawn.png": "/packs/media/assets/white-pawn-4c3cc6fc5c61c9ac11a2c3476612ee82.png",
+  "media/assets/white-queen.png": "/packs/media/assets/white-queen-7eeecfe963b7301bfc8797e2532bd71b.png",
+  "media/assets/white-rook.png": "/packs/media/assets/white-rook-271e9073e2fb4ece87ef62715f2bdf9e.png"
+}
