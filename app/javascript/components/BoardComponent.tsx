@@ -4,6 +4,8 @@ import {Board} from "../models/Board";
 import CellComponent from "./CellComponent";
 import {Cell} from "../models/Cell";
 import {Player} from "../models/Player";
+import NotationComponent from "./NotationComponent";
+import NumsComponent from "./NumsComponent";
 //import {Player} from "../models/Player";
 
 interface BoardProps{
@@ -27,6 +29,9 @@ const BoardComponent: FC<BoardProps> = ({board,setBoard, currentPlayer,swapPlaye
             }
         }
     }
+    const numsNotation = [8,7,6,5,4,3,2,1];
+    const lettersNotation = ["A","B","C","D","E","F","G","H"];
+
     useEffect(()=>{highlightCells()},[selectedCell])
 
     function highlightCells(){
@@ -39,7 +44,6 @@ const BoardComponent: FC<BoardProps> = ({board,setBoard, currentPlayer,swapPlaye
     }
     return (
         <div>
-            <h3>Текущий игрок: {currentPlayer?.color}</h3>
              <div className="board">
                 {board.cells.map((row:Cell[],index:number) =>
                    <React.Fragment key = {index}>
@@ -52,7 +56,8 @@ const BoardComponent: FC<BoardProps> = ({board,setBoard, currentPlayer,swapPlaye
                        />)}
                    </React.Fragment>
                 )}
-
+                 <NotationComponent nums={lettersNotation}/>
+                 <h3 className={"current-player"}>Текущий игрок: {currentPlayer?.color}</h3>
              </div>
         </div>
     );

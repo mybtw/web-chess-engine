@@ -29,6 +29,16 @@ export class Cell{
         }
         return false;
     }
+    isKingUnderAttack():boolean{
+        /*let kingX = 0;
+        let KingY = 0;
+        for(let i = 0; i<8;i++){
+            for(let j = 0;j <8 ;j++) {
+              if(this.board.getCell(i,j).figure == this.figure.)
+            }
+        }*/
+      return false;
+    }
 
     isEmptyVertical(target:Cell):boolean{
         if(this.x !== target.x){
@@ -76,7 +86,7 @@ export class Cell{
         this.figure = figure;
         this.figure.cell = this;
     }
-
+// todo: setfigure last vertical
     moveFigure(target: Cell){
         if(this.figure && this.figure?.canMove(target)){
             this.figure.moveFigure(target)

@@ -20,12 +20,23 @@ const Timer:FC<TimerProps> = ({currentPlayer,restart}) => {
         timer.current = setInterval(callback,1000)
 
     }
+    function checkTimer(){
+        if(blackTime === 0){
+           // alert("WHITE WON!");
+            handleRestart();
+        }
+        else if(whiteTime){
+          //  alert("BLACK WON!");
+            handleRestart();
+        }
+    }
     function decrementBlackTimer(){
-        setBlackTime(prev=>prev-1)
+        setBlackTime(prev=>prev>1? prev-1:0)
     }
     function decrementWhiteTimer(){
-        setWhiteTime(prev=>prev-1)
+        setWhiteTime(prev=>prev>1? prev-1:0)
     }
+
     const handleRestart = () => {
         setWhiteTime(300);
         setBlackTime(300);

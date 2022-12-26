@@ -6,6 +6,7 @@ import {Player} from "./models/Player";
 import {Colors} from "./models/Colors";
 import LostFiguresComponent from "./components/LostFiguresComponent";
 import Timer from "./components/Timer";
+import NumsComponent from "./components/NumsComponent";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         newBoard.addFigures();
         setBoard(newBoard);
     }
+    const numsNotation = [8,7,6,5,4,3,2,1];
 
     function swapPlayer(){
         setCurrentPlayer(currentPlayer?.color ===Colors.WHITE ? blackPlayer:whitePlayer);
@@ -39,6 +41,7 @@ const App = () => {
             setBoard={setBoard}
             currentPlayer = {currentPlayer}
             swapPlayer = {swapPlayer}/>
+            <NumsComponent nums = {numsNotation} />
             <div>
                 <LostFiguresComponent title="Потери черных:" figures={board.lostBlackFigures} />
                 <LostFiguresComponent title="Потери белых:" figures={board.lostWhiteFigures} />

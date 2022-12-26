@@ -2,10 +2,10 @@
   "entrypoints": {
     "hello_react": {
       "js": [
-        "/packs/js/hello_react-75cb0987c53202f3298a.js"
+        "/packs/js/hello_react-37560e76fc13fda47074.js"
       ],
       "js.map": [
-        "/packs/js/hello_react-75cb0987c53202f3298a.js.map"
+        "/packs/js/hello_react-37560e76fc13fda47074.js.map"
       ]
     },
     "hello_typescript": {
@@ -17,8 +17,8 @@
       ]
     }
   },
-  "hello_react.js": "/packs/js/hello_react-75cb0987c53202f3298a.js",
-  "hello_react.js.map": "/packs/js/hello_react-75cb0987c53202f3298a.js.map",
+  "hello_react.js": "/packs/js/hello_react-37560e76fc13fda47074.js",
+  "hello_react.js.map": "/packs/js/hello_react-37560e76fc13fda47074.js.map",
   "hello_typescript.js": "/packs/js/hello_typescript-736830131a936b0890a3.js",
   "hello_typescript.js.map": "/packs/js/hello_typescript-736830131a936b0890a3.js.map",
   "media/assets/black-bishop.png": "/packs/media/assets/black-bishop-0180c5827bceece87dc3abdae65482ef.png",

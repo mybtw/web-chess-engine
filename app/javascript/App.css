@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .board {
@@ -56,4 +58,34 @@
     width: 48px;
     height: 48px;
     position: relative;
+}
+.notation{
+    width: calc(64px * 8);
+    height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.notation-elem{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.nums-container{
+    width: 64px;
+    height: calc(64px * 8);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.board-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
