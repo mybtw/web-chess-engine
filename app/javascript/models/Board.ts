@@ -26,11 +26,11 @@ export class Board{
       }
     }
     public getCopyBoard():Board{
-       const newBoard = new Board();
-       newBoard.cells = this.cells;
-       newBoard.lostWhiteFigures=this.lostWhiteFigures;
-       newBoard.lostBlackFigures=this.lostBlackFigures;
-       return newBoard;
+        const newBoard = new Board();
+        newBoard.cells = [...this.cells];
+        newBoard.lostWhiteFigures = [...this.lostWhiteFigures]
+        newBoard.lostBlackFigures = [...this.lostBlackFigures]
+        return newBoard;
     }
     public highlightCells(selectedCell:Cell|null){
         for(let i = 0; i<this.cells.length; i++){

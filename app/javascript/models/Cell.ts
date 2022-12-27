@@ -1,6 +1,8 @@
 import {Colors} from "./Colors";
-import {Figure} from "./figures/Figure";
+import {Figure, FigureNames} from "./figures/Figure";
 import {Board} from "./Board";
+import {Pawn} from "./figures/Pawn";
+import {King} from "./figures/King";
 
 export class Cell{
     readonly x: number;
@@ -29,14 +31,79 @@ export class Cell{
         }
         return false;
     }
-    isKingUnderAttack():boolean{
-        /*let kingX = 0;
-        let KingY = 0;
+    getKingPos():number[]{
+        let kingX = 0;
+        let kingY = 0;
         for(let i = 0; i<8;i++){
             for(let j = 0;j <8 ;j++) {
-              if(this.board.getCell(i,j).figure == this.figure.)
+                const c = this.board.getCell(i,j);
+                if(c.figure !== null && c.figure.name===FigureNames.KING && c.figure?.color === this.figure?.color) {
+                    kingX = i;
+                    kingY = j;
+                }
             }
-        }*/
+        }
+        console.log(kingX,kingY);
+        return [kingX,kingY];
+    }
+    isSaveMove(target:Cell):boolean{
+        if(this.figure!=null && this.figure.canMoveHandle(target)){
+            console.log("checking",this.figure.name,this.figure?.color);
+            const prevFigure = target.figure;
+            this.board.getCell(target.x,target.y).setFigure(this.board.getCell(this.x,this.y).figure);
+            this.board.getCell(this.x,this.y).setFigure(null);
+            if (!this.board.getCell(this.x,this.y).isKingUnderAttack()) {
+                this.board.getCell(this.x,this.y).setFigure(prevFigure);
+                this.board.getCell(target.x,target.y).setFigure(null);
+                return true;
+            }
+            this.board.getCell(this.x,this.y).setFigure(prevFigure);
+            this.board.getCell(target.x,target.y).setFigure(null);
+        }
+        return false;
+
+    }
+    canHandleCheck(target:Cell):boolean{
+        console.log("canHandleCheck?");
+       /* for(let i = 0; i<8; i++){
+            for(let j =0; j<8;j++){
+                const x = this.board.getCell(i,j);
+                if(x.figure !== null &&  x.figure?.color === this.figure?.color&&x.figure.canMoveHandle(target)) {
+                    console.log("checking",x.figure.name,x.figure?.color);
+                    const checkBoard = this.board.getCopyBoard();
+                    //console.log(this.board.lostBlackFigures==checkBoard.lostBlackFigures)
+                    checkBoard.getCell(i,j).moveFigureHandle(target);
+                    if (!checkBoard.getCell(i,j).isKingUnderAttack()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;*/
+        if(this.figure!=null && this.figure.canMoveHandle(target)){
+            console.log("checking",this.figure.name,this.figure?.color);
+            const prevFigure = target.figure;
+            this.board.getCell(target.x,target.y).setFigure(new Pawn(this.color,target));
+            if (!this.board.getCell(this.x,this.y).isKingUnderAttack()) {
+                console.log( this.figure?.name, this.figure?.color, "can save king", target.x, target.y);
+                this.board.getCell(target.x,target.y).figure=prevFigure;
+                return true;
+            }
+            this.board.getCell(target.x,target.y).figure=prevFigure;
+        }
+        return false;
+    }
+    isKingUnderAttack():boolean{
+        let [kingX,kingY] = this.getKingPos();
+        for(let i = 0; i<8;i++){
+            for(let j = 0;j <8 ;j++) {
+                const x = this.board.getCell(i,j);
+                if(x.figure !== null &&  x.figure?.color !== this.figure?.color && x.figure.canMoveCheck(this.board.getCell(kingX,kingY))) {
+                    console.log(x.figure.name,x.figure?.color, " attacks ",this.figure?.color, "king");
+                    return true;
+                }
+            }
+        }
       return false;
     }
 
@@ -86,9 +153,19 @@ export class Cell{
         this.figure = figure;
         this.figure.cell = this;
     }
-// todo: setfigure last vertical
+    moveFigureHandle(target: Cell){
+        if(this.figure && this.figure?.canMoveHandle(target)){
+            this.figure.moveFigureHandle(target)
+            if(target.figure){
+                this.addLostFigure(target.figure)
+            }
+            target.setFigure(this.figure);
+            this.figure = null;
+        }
+    }
+
     moveFigure(target: Cell){
-        if(this.figure && this.figure?.canMove(target)){
+       if(this.figure && this.figure?.canMove(target)){
             this.figure.moveFigure(target)
             if(target.figure){
                 this.addLostFigure(target.figure)
@@ -96,7 +173,6 @@ export class Cell{
             target.setFigure(this.figure);
             this.figure = null;
         }
-
     }
 
     private addLostFigure(figure: Figure) {

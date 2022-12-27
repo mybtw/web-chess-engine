@@ -29,9 +29,33 @@ export class Figure{
         this.id = Math.random();
     }
 
+    canMoveCheck(target: Cell): boolean{
+        if(target.figure?.color === this.color){
+            return false;
+        }
+        return true;
+    }
 
 
+    // может ли двигаться фигура на эту ячейку или нет
     canMove(target: Cell): boolean{
+        if(target.figure?.color === this.color){
+            return false;
+        }
+        if(target.figure?.name === FigureNames.KING){
+            return false;
+        }
+
+        if(this.cell.isKingUnderAttack() && !this.cell.canHandleCheck(target)){
+            return false;
+        }
+      /*  if(this.cell.isKingUnderAttack() && !this.cell.isSaveMove(target)){
+            return false;
+        }*/
+        return true;
+    }
+
+    canMoveHandle(target:Cell):boolean{
         if(target.figure?.color === this.color){
             return false;
         }
@@ -42,4 +66,5 @@ export class Figure{
     }
 
     moveFigure(target:Cell){}
+    moveFigureHandle(target:Cell){}
 }

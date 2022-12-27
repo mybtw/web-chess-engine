@@ -22,4 +22,18 @@ export class King extends Figure{
         }
         return false;
     }
+    canMoveCheck(target: Cell): boolean {
+        return false;
+    }
+    canMoveHandle(target: Cell): boolean {
+        if(!super.canMoveHandle(target)){
+            return false;
+        }
+        const dx = Math.abs(this.cell.x-target.x);
+        const dy = Math.abs(this.cell.y-target.y);
+        if((dx===0 && dy === 1)||(dx===1 && dy === 0)||(dx===1 && dy === 1)){
+            return true;
+        }
+        return false;
+    }
 }

@@ -23,4 +23,29 @@ export class Rook extends Figure{
         return false;
     }
 
+    canMoveCheck(target: Cell): boolean {
+        if(!super.canMoveCheck(target)){
+            return false;
+        }
+        if(this.cell.isEmptyHorizontal(target)){
+            return true;
+        }
+        if(this.cell.isEmptyVertical(target)){
+            return true;
+        }
+        return false;
+    }
+    canMoveHandle(target: Cell): boolean {
+        if(!super.canMoveHandle(target)){
+            return false;
+        }
+        if(this.cell.isEmptyHorizontal(target)){
+            return true;
+        }
+        if(this.cell.isEmptyVertical(target)){
+            return true;
+        }
+        return false;
+    }
+
 }
