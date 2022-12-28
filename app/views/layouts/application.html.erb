@@ -9,19 +9,21 @@
     <%= javascript_importmap_tags %>
   </head>
   <header class="header">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+
       <% if user_signed_in? %>
         <div>
           <a class="greetings">Привет, <%= current_user.email.to_s.split('@')[0] %></a>
         </div>
-        <div>
+      <div>
+
+        </div>
+        <div class="trio">
           <a href="/static/index">Игра</a>
           <a href="/dashboard/dashboard">Личный кабинет</a>
           <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
         </div>
       <%else %>
-        <a href="/users/sign_in">Регистрация/Вход</a>
+      <a href="/users/sign_in">Регистрация/Вход</a>
       <%end %>
   </header>
 

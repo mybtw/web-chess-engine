@@ -5,10 +5,10 @@
         <%=  gm.game%>
         </div>
     <% end %>
-    <div>
+    <div class="game_form">
     <%= form_tag('/infos') do -%>
-        <div><%=text_field_tag 'answer', "1e4e5-2Nf3Nc6"%></div>
-        <div><%= submit_tag 'Отправить' %></div>
+        <div class="answer"><%=text_field_tag 'answer', "1e4e5-2Nf3Nc6"%></div>
+        <div class="submit_button"><%= submit_tag 'Отправить' %></div>
     <% end -%>
     </div>
 </div>
