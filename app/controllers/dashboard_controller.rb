@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def dashboard
-    @name = "all"
+    @games = Game.all
   end
 end
 

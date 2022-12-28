@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'persons/profile'
   get '/static/index'
   get '/start/welcome_page'
-  get '/static/dashboard'
+  get '/dashboard/dashboard'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
