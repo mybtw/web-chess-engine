@@ -1,26 +1,29 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: chess-db
+  database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: <%=ENV["DB_PASS"] %>
+  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
   url: <%=ENV["DATABASE_URL"] %>
+  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: chess-db
+  database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: <%=ENV["DB_PASS"] %>
+  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
   url: <%=ENV["DATABASE_URL"] %>
+  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: chess-db
+  database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: <%=ENV["DB_PASS"] %>
+  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
   url: <%=ENV["DATABASE_URL"] %>
+  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
