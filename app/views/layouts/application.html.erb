@@ -12,6 +12,7 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <% if user_signed_in? %>
+      <a href="/static/dashboard">Личный кабинет</a>
         <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
         <h1>Привет, <%= current_user.email.to_s.split('@')[0] %></h1>
       <%else %>
