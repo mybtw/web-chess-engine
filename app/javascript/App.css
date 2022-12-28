@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:2rem;
 
 
 }
@@ -88,4 +89,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
 }

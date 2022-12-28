@@ -5,8 +5,8 @@ import {Colors} from "../models/Colors";
 
 const Nums = (props) => {
     return (
-        <div className={"nums-container"}>
-            {props.nums.map((elem)=>(<div className={"notation-elem"}>{elem}</div>))}
+        <div className={"nums-container"} >
+            {props.nums.map((elem)=>(<div key = {Math.random()} className={"notation-elem"}>{elem}</div>))}
         </div>
     );
 };

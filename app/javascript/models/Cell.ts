@@ -31,6 +31,29 @@ export class Cell{
         }
         return false;
     }
+    isGameOver():boolean{
+        const [x,y] = this.getKingPos();
+        if(!this.isKingUnderAttack()){
+            return false;
+        }
+      /*  for(let i =0;i<8;i++){
+            for(let j =0;j<8;j++){
+                const c = this.board.getCell(i,j);
+                if(c.figure!=null){
+                    if(c.figure.color===this.figure.color) {
+                        for (let k = 0; k < 8; i++) {
+                            for (let m = 0; m < 8; j++) {
+                                if (c.canHandleCheck(this.board.getCell(k, m))) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }*/
+        return true;
+    }
     getKingPos():number[]{
         let kingX = 0;
         let kingY = 0;
@@ -45,6 +68,23 @@ export class Cell{
         }
         console.log(kingX,kingY);
         return [kingX,kingY];
+    }
+
+    anotherKingPos():number[]{
+        let kingX = 0;
+        let kingY = 0;
+        for(let i = 0; i<8;i++){
+            for(let j = 0;j <8 ;j++) {
+                const c = this.board.getCell(i,j);
+                if(c.figure !== null && c.figure.name===FigureNames.KING && c.figure?.color !== this.figure?.color) {
+                    kingX = i;
+                    kingY = j;
+                }
+            }
+        }
+        console.log(kingX,kingY);
+        return [kingX,kingY];
+
     }
     isSaveMove(target:Cell):boolean{
         if(this.figure!=null && this.figure.canMoveHandle(target)){
@@ -93,18 +133,23 @@ export class Cell{
         }
         return false;
     }
-    isKingUnderAttack():boolean{
+    isKingUnderAttack():[boolean,Colors]{
         let [kingX,kingY] = this.getKingPos();
+        let [anKingX,anKingY] = this.anotherKingPos();
         for(let i = 0; i<8;i++){
             for(let j = 0;j <8 ;j++) {
                 const x = this.board.getCell(i,j);
                 if(x.figure !== null &&  x.figure?.color !== this.figure?.color && x.figure.canMoveCheck(this.board.getCell(kingX,kingY))) {
                     console.log(x.figure.name,x.figure?.color, " attacks ",this.figure?.color, "king");
-                    return true;
+                    return [true,x.figure?.color];
+                }
+                if(x.figure !== null &&  x.figure?.color === this.figure?.color && x.figure.canMoveCheck(this.board.getCell(anKingX,anKingY))) {
+                    console.log(x.figure.name,x.figure?.color, " attacks ",this.figure?.color, "king");
+                    return [true,x.figure?.color];
                 }
             }
         }
-      return false;
+      return [false,Colors.BLACK];
     }
 
     isEmptyVertical(target:Cell):boolean{

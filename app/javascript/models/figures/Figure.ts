@@ -46,8 +46,11 @@ export class Figure{
             return false;
         }
 
-        if(this.cell.isKingUnderAttack() && !this.cell.canHandleCheck(target)){
-            return false;
+        if(this.cell.isKingUnderAttack()[0]) {
+            return false
+           /* if(!this.cell.canHandleCheck(target)) {
+                return false;
+            }*/
         }
       /*  if(this.cell.isKingUnderAttack() && !this.cell.isSaveMove(target)){
             return false;

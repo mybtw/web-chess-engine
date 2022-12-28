@@ -8,8 +8,9 @@ interface  TimerProps{
 }
 
 const Timer:FC<TimerProps> = ({currentPlayer,restart}) => {
-    const [blackTime,setBlackTime] = useState(300);
-    const [whiteTime,setWhiteTime] = useState(300);
+    const [blackTime,setBlackTime] = useState(500);
+    const [whiteTime,setWhiteTime] = useState(500);
+    const [gameOver,setGameOver] = useState(false);
     const timer = useRef<null| ReturnType<typeof setInterval>>(null)
     useEffect(()=>{startTimer()},[currentPlayer])
     function startTimer(){
@@ -26,7 +27,6 @@ const Timer:FC<TimerProps> = ({currentPlayer,restart}) => {
             handleRestart();
         }
         else if(whiteTime){
-          //  alert("BLACK WON!");
             handleRestart();
         }
     }
@@ -38,8 +38,8 @@ const Timer:FC<TimerProps> = ({currentPlayer,restart}) => {
     }
 
     const handleRestart = () => {
-        setWhiteTime(300);
-        setBlackTime(300);
+        setWhiteTime(500);
+        setBlackTime(500);
         restart();
     }
     return (

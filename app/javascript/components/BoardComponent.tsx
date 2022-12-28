@@ -5,7 +5,8 @@ import CellComponent from "./CellComponent";
 import {Cell} from "../models/Cell";
 import {Player} from "../models/Player";
 import NotationComponent from "./NotationComponent";
-import NumsComponent from "./NumsComponent";
+import {Colors} from "../models/Colors";
+
 //import {Player} from "../models/Player";
 
 interface BoardProps{
@@ -18,14 +19,24 @@ interface BoardProps{
 
 const BoardComponent: FC<BoardProps> = ({board,setBoard, currentPlayer,swapPlayer}) => {
     const[selectedCell, setSelectedCell] = useState<Cell|null>(null);
+    const[gameOver,setGameOver]=useState(false);
+    const[winner,setGameWinner]= useState(Colors.WHITE);
+
     function click(cell:Cell){
-        if(selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)){
-            selectedCell.moveFigure(cell);
-            swapPlayer();
-            setSelectedCell(null);
-        } else {
-            if(cell.figure?.color === currentPlayer?.color) {
-                setSelectedCell(cell);
+            if (cell.figure != null) {
+               const [cond,w] = cell.isKingUnderAttack();
+                setGameOver(cond);
+                setGameWinner(w);
+            }
+        if(!gameOver) {
+            if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) {
+                selectedCell.moveFigure(cell);
+                swapPlayer();
+                setSelectedCell(null);
+            } else {
+                if (cell.figure?.color === currentPlayer?.color) {
+                    setSelectedCell(cell);
+                }
             }
         }
     }
@@ -57,7 +68,10 @@ const BoardComponent: FC<BoardProps> = ({board,setBoard, currentPlayer,swapPlaye
                    </React.Fragment>
                 )}
                  <NotationComponent nums={lettersNotation}/>
-                 <h3 className={"current-player"}>Текущий игрок: {currentPlayer?.color}</h3>
+                 <div className={"info"}>
+                     <h3 className={"current-player"}>{!gameOver &&`Текущий игрок: ${currentPlayer?.color}`}</h3>
+                     <h2> {gameOver && `Победили ${winner}`}</h2>
+                 </div>
              </div>
         </div>
     );
