@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
-  set_table_name 'games'
-  set_primary_key 'id'
+class Game < ApplicationRecord
+  self.table_name = "games"
+  self.primary_key = 'id'
 end
