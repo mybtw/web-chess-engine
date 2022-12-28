@@ -242,7 +242,7 @@ DEPENDENCIES
   react-rails
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data
