@@ -42,6 +42,7 @@ body {
     color: black;
     font-size: 2rem;
     gap:1.5rem;
+    justify-content: space-between;
 }
 .header a{
     color: white;
