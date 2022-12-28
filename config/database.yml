@@ -4,9 +4,9 @@ development:
   database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
+  password: <%=ENV["DB_PASS"] %>
   url: <%=ENV["DATABASE_URL"] %>
-  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
+  host: <%=ENV["DB_HOST"] %>
 
 test:
   adapter: postgresql
@@ -14,9 +14,9 @@ test:
   database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
+  password: <%=ENV["DB_PASS"] %>
   url: <%=ENV["DATABASE_URL"] %>
-  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
+  host: <%=ENV["DB_HOST"] %>
 
 production:
   adapter: postgresql
@@ -24,6 +24,6 @@ production:
   database: chess_db_qan4
   pool: 5
   username: chess_db_qan4_user
-  password: 3rNPVjKZVwWsTwYeHdh1ZGHOjfBKcPnk
+  password: <%=ENV["DB_PASS"] %>
   url: <%=ENV["DATABASE_URL"] %>
-  host: dpg-cem3djo2i3molpiaf8rg-a.frankfurt-postgres.render.com
+  host: <%=ENV["DB_HOST"] %>

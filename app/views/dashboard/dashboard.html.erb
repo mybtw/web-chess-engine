@@ -1,8 +1,14 @@
 <div class="center-container">
-  <h2 class="forgot">Игры:</h2>
-  <%- @games.each do |gm| %>
+    <h2 class="forgot">Игры:</h2>
+     <%- @games.each do |gm| %>
+        <div>
+        <%=  gm.game%>
+        </div>
+    <% end %>
     <div>
-      <%=  gm.game%>
+    <%= form_tag('/infos') do -%>
+        <div><%=text_field_tag 'answer', "1e4e5-2Nf3Nc6"%></div>
+        <div><%= submit_tag 'Отправить' %></div>
+    <% end -%>
     </div>
-  <% end %>
 </div>
