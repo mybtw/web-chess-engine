@@ -9,12 +9,18 @@
     <%= javascript_importmap_tags %>
   </head>
   <header>
-    <%= link_to "Back", :back %>
+    <%= if user_signed_in? %>
+      <%= link_to "Exit", :back %>
+    <%=else %>
+      <a href="/users/sign_in">ign in</a>
+    <%=end %>
 
 
   </header>
 
   <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

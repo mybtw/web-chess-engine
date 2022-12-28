@@ -114,6 +114,10 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -251,6 +255,7 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
+  letter_opener
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -265,7 +270,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.3.26
