@@ -27,7 +27,7 @@ export class Board{
     }
     public getCopyBoard():Board{
         const newBoard = new Board();
-        newBoard.cells = [...this.cells];
+        newBoard.cells = this.cells;
         newBoard.lostWhiteFigures = this.lostWhiteFigures
         newBoard.lostBlackFigures = this.lostBlackFigures
         return newBoard;
