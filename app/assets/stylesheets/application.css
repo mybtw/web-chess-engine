@@ -32,3 +32,114 @@ body {
     line-height: 1;
     font-weight: 400;
 }
+
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 1.7rem;
+    text-align: center;
+    background: #080404;
+    color: black;
+    font-size: 2rem;
+    gap:1.5rem;
+}
+.header a{
+    color: white;
+    text-decoration: none;
+}
+.greetings{
+    font-size: 2rem;
+    color: white;
+}
+.welcome-anchor{
+    text-decoration: none;
+    color: #080404 ;
+}
+.center-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+.welcome-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+}
+.log-in-container{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    font-size: 3rem;
+    border-style: solid;
+    border-radius: 3rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    padding: 2rem;
+}
+.log-in{
+    text-align: center;
+}
+.play{
+    border-style: solid;
+    border-radius: 1rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    padding: 2rem;
+}
+
+.field input{
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    margin: 0.8rem 0;
+    box-sizing: border-box;
+    font-size: 2rem;
+}
+
+.actions{
+    text-align: center;
+}
+
+.actions input{
+    border-style: solid;
+    border-radius: 1rem;
+    width: 100%;
+
+}
+.actions input{
+    background: black;
+    color: white;
+    padding: 1.1rem 1.5rem;
+    margin: 0.8rem 0;
+    font-size: 2.5rem;
+}
+
+.check{
+    display: flex;
+    flex-direction: row;
+}
+
+.forgot{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.new-user{
+    font-size: 2rem;
+}
+
+.variants{
+    font-size: 2rem;
+}
+.field label{
+    font-size: 2rem;
+}
+.field em{
+    font-size: 2rem;
+}
+
+
+
+

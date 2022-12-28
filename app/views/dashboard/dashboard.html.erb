@@ -1,5 +1,8 @@
-<%- @games.each do |gm| %>
-  <div>
-    <%=  gm.game%>
-  </div>
-<% end %>
+<div class="center-container">
+  <h2 class="forgot">Игры:</h2>
+  <%- @games.each do |gm| %>
+    <div>
+      <%=  gm.game%>
+    </div>
+  <% end %>
+</div>
