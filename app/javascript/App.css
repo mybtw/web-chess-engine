@@ -11,7 +11,9 @@
     align-items: center;
     gap:2rem;
 
-
+}
+.lost-title{
+    font-size: 1.9rem;
 }
 
 .board {
@@ -103,4 +105,11 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    font-size: 1.9rem;
+}
+.restart-button{
+    font-size: 2rem;
+}
+.lost-figure-title{
+    font-size: 1.6rem;
 }
