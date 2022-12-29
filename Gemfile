@@ -10,7 +10,7 @@ gem "letter_opener"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use Postgres as the database for Active Record
+# Use Postgres as the database for Active Recor
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
